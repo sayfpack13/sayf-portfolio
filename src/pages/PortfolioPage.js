@@ -25,21 +25,21 @@ const About = () => {
         <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-20" style={{ WebkitTextStroke: '1px #dee2e6' }}>About</h1>
         <h1 className="absolute text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-blue-600">About Me</h1>
       </div>
-        <div className="p-8 bg-white rounded-lg shadow-xl">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 text-center">I'm <span className="text-blue-600">Sayf Rourou</span>, a Web Developer</h2>
-          <p className="text-gray-600 leading-relaxed mb-6">
-            With a solid foundation in both front-end and back-end development, I enjoy building dynamic and responsive web applications. I specialize in crafting seamless user experiences and robust, scalable systems.
-          </p>
-          <div className="grid grid-cols-2 gap-4 text-gray-700 mb-6">
-            <p><span className="font-semibold text-blue-600">Birthday:</span> {personalInfo.birthday}</p>
-            <p><span className="font-semibold text-blue-600">Degree:</span> {personalInfo.degree}</p>
-            <p><span className="font-semibold text-blue-600">Experience:</span> {personalInfo.experience}</p>
-            <p><span className="font-semibold text-blue-600">Phone:</span> {personalInfo.phone}</p>
-            <p><span className="font-semibold text-blue-600">Email:</span> {personalInfo.email}</p>
-            <p><span className="font-semibold text-blue-600">Address:</span> Tunis, Tunisia</p>
-          </div>
-          <a href={personalInfo.cvLink} target="_blank" rel="noopener noreferrer" className="btn bg-blue-600 text-white py-3 px-8 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-lg">Download CV</a>
+      <div className="p-8 bg-white rounded-lg shadow-xl">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4 text-center">I'm <span className="text-blue-600">Sayf Rourou</span>, a Web Developer</h2>
+        <p className="text-gray-600 leading-relaxed mb-6">
+          With a solid foundation in both front-end and back-end development, I enjoy building dynamic and responsive web applications. I specialize in crafting seamless user experiences and robust, scalable systems.
+        </p>
+        <div className="grid grid-cols-2 gap-4 text-gray-700 mb-6">
+          <p><span className="font-semibold text-blue-600">Birthday:</span> {personalInfo.birthday}</p>
+          <p><span className="font-semibold text-blue-600">Degree:</span> {personalInfo.degree}</p>
+          <p><span className="font-semibold text-blue-600">Experience:</span> {personalInfo.experience}</p>
+          <p><span className="font-semibold text-blue-600">Phone:</span> {personalInfo.phone}</p>
+          <p><span className="font-semibold text-blue-600">Email:</span> {personalInfo.email}</p>
+          <p><span className="font-semibold text-blue-600">Address:</span> Tunis, Tunisia</p>
         </div>
+        <a href={personalInfo.cvLink} target="_blank" rel="noopener noreferrer" className="btn bg-blue-600 text-white py-3 px-8 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-lg">Download CV</a>
+      </div>
     </SectionWrapper>
   );
 };
@@ -254,32 +254,28 @@ const Contact = () => {
 const PortfolioPage = ({ setSectionRef }) => {
   return (
     <>
-      {/* Portfolio Section */}
-      <SectionObserver sectionId="portfolio" setSectionRef={setSectionRef}>
-        <PortfolioSection />
-      </SectionObserver>
 
-      {/* About Section */}
+
       <SectionObserver sectionId="about" setSectionRef={setSectionRef}>
         <About />
       </SectionObserver>
 
-      {/* Qualification Section */}
       <SectionObserver sectionId="qualification" setSectionRef={setSectionRef}>
         <Qualification />
       </SectionObserver>
 
-      {/* Skill Section */}
       <SectionObserver sectionId="skill" setSectionRef={setSectionRef}>
         <Skill />
       </SectionObserver>
 
-      {/* Interests Section */}
       <SectionObserver sectionId="interests" setSectionRef={setSectionRef}>
         <Interests />
       </SectionObserver>
 
-      {/* Contact Section */}
+      <SectionObserver sectionId="portfolio" setSectionRef={setSectionRef}>
+        <PortfolioSection />
+      </SectionObserver>
+
       <SectionObserver sectionId="contact" setSectionRef={setSectionRef}>
         <Contact />
       </SectionObserver>

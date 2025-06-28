@@ -1,3 +1,178 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom animations (existing) */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 1s ease-out forwards;
+}
+
+/* Responsive video container for PortfolioSection */
+.portfolio-video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    /* rounded-t-lg */
+}
+
+.portfolio-video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* New Keyframes for Welcome Screen Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseEffect {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Styles for the introductory overlay */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a202c;
+    /* Dark background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    /* Ensure it's on top */
+    color: white;
+    text-align: center;
+    /* Apply new initial animation to the overlay itself */
+    animation: fadeIn 0.5s ease-out forwards;
+    /* Simple fade in for the background */
+}
+
+.intro-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    /* Make it unclickable after fade out */
+}
+
+.intro-overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    /* New animation for the H1 tag */
+    animation: slideInRight 0.4s ease-out 0.25s forwards;
+    /* Slide from right with delay */
+    opacity: 0;
+    /* Hidden initially */
+}
+
+.intro-overlay p {
+    /* New animation for the paragraph */
+    animation: slideInLeft 0.4s ease-out 0.4s forwards;
+    /* Slide from left with delay */
+    opacity: 0;
+    /* Hidden initially */
+}
+
+.intro-overlay button {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    border-radius: 9999px;
+
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* New animation for the button */
+    animation: zoomIn 0.8s ease-out 0.6s forwards, pulseEffect 2s infinite 2s;
+    /* Zoom in with delay + pulse */
+    opacity: 0;
+    /* Hidden initially */
+}

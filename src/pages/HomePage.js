@@ -110,7 +110,7 @@ const HomePage = ({ setSectionRef }) => {
       }
     };
 
-    const typingSpeed = isDeleting ? 50 : 150;
+    const typingSpeed = isDeleting ? 20 : 70;
     const typingTimeout = setTimeout(handleTyping, typingSpeed);
 
     return () => clearTimeout(typingTimeout);
@@ -130,7 +130,7 @@ const HomePage = ({ setSectionRef }) => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/img/hero-bg.jpg')", filter: 'grayscale(100%) blur(2px)' }}
           ></motion.div>
@@ -141,7 +141,7 @@ const HomePage = ({ setSectionRef }) => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h2 className="text-4xl sm:text-6xl font-bold mb-4">Hello,</h2>
   
@@ -156,7 +156,7 @@ const HomePage = ({ setSectionRef }) => {
               className="mt-12 inline-block bg-blue-600 text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-400"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 3 }}
+              transition={{ duration: 0.4, delay: 2 }}
             >
               Explore My Work
             </motion.a>

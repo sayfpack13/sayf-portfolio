@@ -19,7 +19,7 @@ const Header = () => {
           className="text-4xl font-extrabold text-blue-600 transition-transform transform hover:scale-105"
           onClick={() => setIsOpen(false)}
         >
-          sayfaio
+          Sayf All-In-One
         </Link>
 
         <div className="hidden lg:flex items-center space-x-8">

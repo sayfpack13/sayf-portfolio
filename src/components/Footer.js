@@ -5,7 +5,7 @@ const Footer = ({ scrollToTop }) => {
   return (
     <footer className="bg-gradient-to-r from-blue-700 to-blue-900 text-white mt-16 py-12 px-6 rounded-t-3xl shadow-2xl">
       <div className="container mx-auto text-center">
-        <h3 className="text-4xl font-bold mb-4 drop-shadow-md">sayfaio</h3>
+        <h3 className="text-4xl font-bold mb-4 drop-shadow-md">Sayf All-In-One</h3>
         <p className="text-blue-200 mb-8 max-w-2xl mx-auto">
           Innovating one project at a time. Let's build something amazing together.
         </p>
@@ -30,7 +30,7 @@ const Footer = ({ scrollToTop }) => {
           </a>
         </div>
         <p className="text-blue-300 text-sm mb-2">
-          &copy; {new Date().getFullYear()} sayfaio. All rights reserved.
+          &copy; {new Date().getFullYear()} Sayf All-In-One. All rights reserved.
         </p>
         <p className="text-blue-400 text-xs">
           Built with <span className="text-red-400">&hearts;</span> by Sayf

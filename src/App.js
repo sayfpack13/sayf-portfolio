@@ -16,10 +16,39 @@ const AppWrapper = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Sync currentPage with URL
   const [currentPage, setCurrentPage] = useState(() => {
     return location.pathname === '/portfolio' ? 'portfolio-page' : 'home-page';
   });
+
+
+  const [hasEnteredSite, setHasEnteredSite] = useState(false);
+  const [selectedAudio, setSelectedAudio] = useState(null);
+  const audioRef = useRef(null);
+
+  const startupSounds = [
+    '/sounds/startup/1.mp3',
+    '/sounds/startup/2.mp3',
+    '/sounds/startup/3.mp3',
+    // Add more paths if needed
+  ];
+
+  // Function to handle user interaction and play audio
+  const handleEnterSite = () => {
+    // Select random audio
+    const randomSound = startupSounds[Math.floor(Math.random() * startupSounds.length)];
+    setSelectedAudio(randomSound);
+    setHasEnteredSite(true);
+
+    // Play after setting src
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.play().catch(error => {
+          console.error('Audio playback failed:', error);
+        });
+      }
+    }, 50);
+  };
+
 
   const sectionRefs = useRef({});
 
@@ -32,6 +61,7 @@ const AppWrapper = () => {
     const timer = setTimeout(() => {
       const element = sectionRefs.current[currentPage];
       if (element) {
+        // Ensure window.pageYOffset is used for broader compatibility
         const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
         window.scrollTo({ top: offsetTop, behavior: 'smooth' });
       }
@@ -49,6 +79,15 @@ const AppWrapper = () => {
     }
   }, [location]);
 
+  useEffect(() => {
+    const randomSound = startupSounds[Math.floor(Math.random() * startupSounds.length)];
+    setSelectedAudio(randomSound);
+  }, []);
+
+
+
+
+
   const handleNavClick = (pageId) => {
     if (pageId === 'home-page') {
       navigate('/');
@@ -57,74 +96,59 @@ const AppWrapper = () => {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+
 
 
   return (
     <div className="font-sans antialiased bg-gray-50 text-gray-800">
-      {/* Font Awesome CDN for icons */}
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-      {/* Google Fonts - Inter */}
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-      {/* Typed.js CDN for typing effect */}
-      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-      {/* Tailwind CSS CDN */}
-      <script src="https://cdn.tailwindcss.com"></script>
-      <style>{`
-        /* Custom animations */
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
-        .animate-scale-in { animation: scaleIn 1s ease-out forwards; }
-        /* Responsive video container for PortfolioSection */
-        .portfolio-video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.5rem; /* rounded-t-lg */
-        }
-        .portfolio-video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-      `}</style>
+      <audio ref={audioRef} src={selectedAudio} preload="auto" />
 
-      <Header
-        currentPage={currentPage}
-        setCurrentPage={handleNavClick}
-      />
+      {/* Conditional rendering for the introductory overlay */}
+      {!hasEnteredSite ?
+        <div className="intro-overlay">
+          <h1>Welcome!</h1>
+          <button className='bg-blue-600 hover:bg-blue-700 text-white' onClick={handleEnterSite}>
+            Enter Website
+          </button>
+        </div>
+        :
 
-      <Routes>
-        <Route
-          path="/"
-          element={<HomePage setSectionRef={setSectionRef} />}
-        />
-        <Route
-          path="/portfolio"
-          element={<PortfolioPage setSectionRef={setSectionRef} />}
-        />
-      </Routes>
+        <>
+          {/* Main application content, conditionally hidden until user enters */}
+          <div className={!hasEnteredSite ? 'hidden' : ''}>
+            <Header
+              currentPage={currentPage}
+              setCurrentPage={handleNavClick}
+            />
 
-      <Footer
-        scrollToTop={() => {
-          const targetId = currentPage === 'home-page' ? 'home' : 'portfolio';
-          const element = sectionRefs.current[targetId];
-          if (element) {
-            const offsetTop = element.getBoundingClientRect().top + window.pageYCOffset - 80;
-            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-          } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-        }}
-      />
+            <Routes>
+              <Route
+                path="/"
+                element={<HomePage setSectionRef={setSectionRef} />}
+              />
+              <Route
+                path="/portfolio"
+                element={<PortfolioPage setSectionRef={setSectionRef} />}
+              />
+            </Routes>
+
+            <Footer
+              scrollToTop={() => {
+                const targetId = currentPage === 'home-page' ? 'home' : 'portfolio';
+                const element = sectionRefs.current[targetId];
+                if (element) {
+                  const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
+                  window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                } else {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            />
+          </div>
+        </>
+      }
+
+
     </div>
   );
 };
