@@ -22,7 +22,7 @@ const About = () => {
   return (
     <SectionWrapper>
       <div className="relative flex items-center justify-center mb-12">
-        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-20" style={{ WebkitTextStroke: '1px #dee2e6' }}>About</h1>
+        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-70" style={{ WebkitTextStroke: '1px #dee2e6' }}>About</h1>
         <h1 className="absolute text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-blue-600">About Me</h1>
       </div>
       <div className="p-8 bg-white rounded-lg shadow-xl">
@@ -80,7 +80,7 @@ const Qualification = () => {
   return (
     <SectionWrapper>
       <div className="relative flex items-center justify-center mb-12">
-        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-20" style={{ WebkitTextStroke: '1px #dee2e6' }}>History</h1>
+        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-70" style={{ WebkitTextStroke: '1px #dee2e6' }}>History</h1>
         <h1 className="absolute text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-blue-600">My Qualifications</h1>
       </div>
       <div className="flex justify-center mb-10">
@@ -123,7 +123,7 @@ const Skill = () => {
   return (
     <SectionWrapper>
       <div className="relative flex items-center justify-center mb-12">
-        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-20" style={{ WebkitTextStroke: '1px #dee2e6' }}>Skills</h1>
+        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-70" style={{ WebkitTextStroke: '1px #dee2e6' }}>Skills</h1>
         <h1 className="absolute text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-blue-600">My Skills</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -148,13 +148,13 @@ const Interests = () => {
   return (
     <SectionWrapper>
       <div className="relative flex items-center justify-center mb-12">
-        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-20" style={{ WebkitTextStroke: '1px #dee2e6' }}>Interests</h1>
+        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-70" style={{ WebkitTextStroke: '1px #dee2e6' }}>Interests</h1>
         <h1 className="absolute text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-blue-600">My Interests</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-3">
         {interestsData.map((item, i) => (
           <div key={i} className="text-center p-6 bg-blue-600 rounded-lg shadow-lg text-white transform transition-transform hover:scale-105 duration-300">
-            <div className="flex justify-center items-center h-16 w-16 bg-white bg-opacity-20 rounded-full mx-auto mb-4">
+            <div className="flex justify-center items-center h-16 w-16 bg-white bg-opacity-70 rounded-full mx-auto mb-4">
               {item.icon}
             </div>
             <h4 className="text-xl font-semibold">{item.name}</h4>
@@ -172,7 +172,7 @@ const PortfolioSection = () => {
   return (
     <SectionWrapper>
       <div className="relative flex items-center justify-center mb-12">
-        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-20" style={{ WebkitTextStroke: '1px #dee2e6' }}>Gallery</h1>
+        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-70" style={{ WebkitTextStroke: '1px #dee2e6' }}>Gallery</h1>
         <h1 className="absolute text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-blue-600">My Portfolio</h1>
       </div>
       <div className="text-center mb-10">
@@ -222,7 +222,7 @@ const Contact = () => {
   return (
     <SectionWrapper>
       <div className="relative flex items-center justify-center mb-12">
-        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-20" style={{ WebkitTextStroke: '1px #dee2e6' }}>Contact</h1>
+        <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-70" style={{ WebkitTextStroke: '1px #dee2e6' }}>Contact</h1>
         <h1 className="absolute text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-blue-600">Get In Touch</h1>
       </div>
       <div className="bg-white p-8 rounded-lg shadow-xl max-w-3xl mx-auto">

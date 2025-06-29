@@ -167,7 +167,7 @@ const HomePage = ({ setSectionRef }) => {
       <SectionObserver sectionId="featured-projects" setSectionRef={setSectionRef}>
         <div className="container mx-auto py-16 px-4">
           <div className="relative flex items-center justify-center mb-12">
-            <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-20" style={{ WebkitTextStroke: '1px #dee2e6' }}>Projects</h1>
+            <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase text-gray-200 opacity-70" style={{ WebkitTextStroke: '1px #dee2e6' }}>Projects</h1>
             <h1 className="absolute text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-blue-600">Featured Projects</h1>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
