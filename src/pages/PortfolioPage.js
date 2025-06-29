@@ -1,6 +1,7 @@
 // src/pages/PortfolioPage.js
 import React, { useState, useEffect, useRef } from 'react';
 import { Award, Settings, Mail, Linkedin } from 'lucide-react'; // Lucide icons for Qualification and Contact
+import { Helmet } from 'react-helmet-async';
 import SectionObserver from '../components/SectionObserver';
 import SectionWrapper from '../components/SectionWrapper';
 import {
@@ -254,31 +255,37 @@ const Contact = () => {
 const PortfolioPage = ({ setSectionRef }) => {
   return (
     <>
+      <Helmet>
+        <title>Portfolio - Sayf Rourou</title>
+        <meta name="description" content="Explore my portfolio of web development projects, skills, and experience. See my work in React, Node.js, and more." />
+      </Helmet>
+      <div className="bg-gray-50 min-h-screen">
+        <main className="container mx-auto py-12 px-4">
+          <SectionObserver sectionId="about" setSectionRef={setSectionRef}>
+            <About />
+          </SectionObserver>
 
+          <SectionObserver sectionId="qualification" setSectionRef={setSectionRef}>
+            <Qualification />
+          </SectionObserver>
 
-      <SectionObserver sectionId="about" setSectionRef={setSectionRef}>
-        <About />
-      </SectionObserver>
+          <SectionObserver sectionId="skill" setSectionRef={setSectionRef}>
+            <Skill />
+          </SectionObserver>
 
-      <SectionObserver sectionId="qualification" setSectionRef={setSectionRef}>
-        <Qualification />
-      </SectionObserver>
+          <SectionObserver sectionId="interests" setSectionRef={setSectionRef}>
+            <Interests />
+          </SectionObserver>
 
-      <SectionObserver sectionId="skill" setSectionRef={setSectionRef}>
-        <Skill />
-      </SectionObserver>
+          <SectionObserver sectionId="portfolio" setSectionRef={setSectionRef}>
+            <PortfolioSection />
+          </SectionObserver>
 
-      <SectionObserver sectionId="interests" setSectionRef={setSectionRef}>
-        <Interests />
-      </SectionObserver>
-
-      <SectionObserver sectionId="portfolio" setSectionRef={setSectionRef}>
-        <PortfolioSection />
-      </SectionObserver>
-
-      <SectionObserver sectionId="contact" setSectionRef={setSectionRef}>
-        <Contact />
-      </SectionObserver>
+          <SectionObserver sectionId="contact" setSectionRef={setSectionRef}>
+            <Contact />
+          </SectionObserver>
+        </main>
+      </div>
     </>
   );
 };

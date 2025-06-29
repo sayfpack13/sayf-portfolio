@@ -16,9 +16,10 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link
           to="/"
-          className="text-4xl font-extrabold text-blue-600 transition-transform transform hover:scale-105"
+          className="flex items-center text-4xl font-extrabold text-blue-600 transition-transform transform hover:scale-105"
           onClick={() => setIsOpen(false)}
         >
+          <img src="/logo-bg.png" alt="Logo" className="h-14 mr-3" />
           Sayf All-In-One
         </Link>
 
