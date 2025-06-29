@@ -132,7 +132,6 @@ const HomePage = ({ setSectionRef }) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/img/hero-bg.jpg')", filter: 'grayscale(100%) blur(2px)' }}
           ></motion.div>
           <div className="absolute inset-0 bg-blue-900 opacity-70"></div>
         </div>

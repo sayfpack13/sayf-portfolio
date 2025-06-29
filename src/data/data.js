@@ -17,7 +17,7 @@ export const personalInfo = {
   degree: "Professional Master's in Information Systems Engineering & Data Science",
   experience: '5 Years',
   phone: '+216 94 111 680',
-  email: 'sayfpackc11@gmail.com',
+  email: 'sayfrourou@gmail.com',
   cvLink: '/cv/CV.pdf',
 };
 
